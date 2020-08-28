@@ -60,8 +60,19 @@
     margin: 5px 0 5px 0;
     background-color: var(--primary-color);
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .btn:hover {
     background-color: var(--secondary-color);
+}
+
+#listitem {
+    list-style: none;
+    visibility: hidden;
+}
+
+#instructions {
+    font-weight: bold;
+    font-size: 18px;
 }

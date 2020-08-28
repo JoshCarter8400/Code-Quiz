@@ -18,22 +18,26 @@
 
     <main class="container">
         <div id="welcome-page" class="welcome-page">
-            <h1 class="welcome">Coding Quiz Challenge</h1>
-            <p class="instructions">Please answer the following Questions within the time limit</br>But don't rush! Incorrect answers come with a 10 second penalty!!</p>
+            <h1 class="welcome" id="questions">Coding Quiz Challenge</h1>
+            <p id="instructions">Welcome to the Code Quiz! Please answer all questions in the allotted time</br>But be careful a wrong answer is a 10 second penalty!!
+
+            </p>
         </div>
-
         <div id="questions"></div>
-        <div id="quiz"></div>
-
         <div id="answer-buttons" class="buttons">
-            <button class="btn">Choice 1</button>
-            <button class="btn">Choice 2</button>
-            <button class="btn">Choice 3</button>
-            <button class="btn">Choice 4</button>
+            <ul>
+                <li id="listitem">
+                    <button id="btn-1" class="btn"></button>
+                    <button id="btn-2" class="btn"></button>
+                    <button id="btn-3" class="btn"></button>
+                    <button id="btn-4" class="btn"></button>
+                </li>
+            </ul>
+
+        </div>
+        <div>
             <button id="start-btn" class="btn" type="submit">Start Quiz</button>
         </div>
-
-
 
 
 
