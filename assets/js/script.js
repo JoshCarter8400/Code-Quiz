@@ -35,9 +35,25 @@ var answer4 = document.getElementById("btn-4");
 var start = document.getElementById("start-btn");
 // var for getting instructions
 var instructions = document.getElementById("instructions")
-    // vars for timer 
-var sec = 75
-    // var time = setInterval(myTimer, 75);
+var timeLeft = 75;
+// var for getting timer
+var timer = document.getElementById("timer");
+
+var countDown = function() {
+
+
+    var timeInterval = setInterval(function() {
+        if (timeLeft > 0) {
+            timer.textContent = "timer " + timeLeft;
+            timeLeft--;
+        } else {
+            timer.textContent = "timer " + timeLeft;
+            clearInterval(timeInterval);
+        }
+    }, 1000);
+
+};
+
 
 var createQuestionElement = function(index) {
 
@@ -74,7 +90,9 @@ var createStartQuiz = function(list) {
     listItem.style.visibility = "visible";
 
     createQuestionElement();
+    countDown();
 }
+
 
 
 start.addEventListener("click", createStartQuiz);
