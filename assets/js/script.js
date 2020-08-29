@@ -1,6 +1,6 @@
 var questions = [{
     question: "Commonly used data types DO NOT include?",
-    choices: ["Alerts", "Strings", "basketball", "Numbers"],
+    choices: ["Alerts", "Strings", "Basketball", "Numbers"],
     correctAnswer: "Basketball"
 }, {
     question: "A very useful tool for debugging and printing content to the debugger is?",
@@ -46,10 +46,7 @@ var end = document.getElementById("end-game")
 var score = document.getElementById("score")
 var display1 = document.getElementById("display-1")
 var display2 = document.getElementById("display-2")
-
 var countDown = function() {
-
-
     var timeInterval = setInterval(function() {
         if (timeLeft > 0) {
             timer.textContent = "timer " + timeLeft;
@@ -57,54 +54,45 @@ var countDown = function() {
         } else {
             timer.textContent = "timer " + timeLeft;
             createEndGame();
-
         }
     }, 1000);
-
 };
+var createQuestionElement = function() {
 
-
-var createQuestionElement = function(index) {
-
-    var currentQuestion = questions[questionCounter]
-
+    var currentQuestion = questions[questionCounter + 1]
     question.textContent = currentQuestion.question;
-
     answer1.textContent = currentQuestion.choices[0]
     answer2.textContent = currentQuestion.choices[1]
     answer3.textContent = currentQuestion.choices[2]
     answer4.textContent = currentQuestion.choices[3]
 
-
 }
-
 var checkAnswer = function(event) {
-
-
-    var correctAnswer = questions[questionCounter].correctAnswer
-    var currentAnswer = event.target.textContent
-    if (currentAnswer === correctAnswer) {
-        alert("Correct!")
-    } else {
-        alert("False")
-
-
-
-    }
-
+    console.log(questionCounter)
     if (questionCounter === questions.length) {
         createEndGame();
     } else {
+        var correctAnswer = questions[questionCounter].correctAnswer
+        var currentAnswer = event.target.textContent
+        if (currentAnswer === correctAnswer) {
+            console.log(correctAnswer, currentAnswer)
+            display1.removeAttribute("class");
+            display2.setAttribute("class", "hide");
+            createQuestionElement();
+        } else {
+            console.log(correctAnswer, currentAnswer)
+            display2.removeAttribute("class");
+            display1.setAttribute("class", "hide");
+            createQuestionElement();
+        }
         questionCounter++;
-        createQuestionElement();
+
+
     }
 
-
-
-
 }
-
 var createEndGame = function() {
+    console.log('THE END!!')
     if (timeLeft < 0) {
         timeLeft === 0;
     }
@@ -113,20 +101,13 @@ var createEndGame = function() {
     // question.classList.add("hide");
     score.textContent = "Your final score is " + score;
 }
-
 var createStartQuiz = function(list) {
     instructions.style.visibility = "hidden";
-
-
     start.style.display = "none";
     listItem.style.visibility = "visible";
     end.style.display = "none";
     createQuestionElement();
-
 }
-
-
-
 start.addEventListener("click", createStartQuiz);
 answer1.addEventListener("click", checkAnswer)
 answer2.addEventListener("click", checkAnswer)
