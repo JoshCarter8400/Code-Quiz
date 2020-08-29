@@ -76,3 +76,11 @@
     font-weight: bold;
     font-size: 18px;
 }
+
+#end-game {
+    display: none;
+}
+
+.hide {
+    display: none;
+}

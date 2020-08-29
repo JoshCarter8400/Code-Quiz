@@ -13,7 +13,7 @@
 
     <header class="header">
         <a href="">View high scores</a>
-        <p id="timer">Time: 75 </p>
+        <p id="timer">Time: 60 </p>
     </header>
 
     <main class="container">
@@ -23,7 +23,8 @@
 
             </p>
         </div>
-        <div id="questions"></div>
+        <!-- <div id="question-container" class="hide"> -->
+        <div id="question"></div>
         <div id="answer-buttons" class="buttons">
             <ul>
                 <li id="listitem">
@@ -33,7 +34,16 @@
                     <button id="btn-4" class="btn"></button>
                 </li>
             </ul>
-
+        </div>
+        <!-- </div> -->
+        <div id="display-1" class="correct hide"></div>
+        <div id="display-2" class="wrong hide"></div>
+        <div id="end-game" class="end hide">
+            <h1 class="done">All Done</h1>
+            <p id="score"></p>
+            <p>Enter Initials</p>
+            <input type="text" id="initials" placeholder="Your Initials">
+            <button id="submit-btn">Submit</button>
         </div>
         <div>
             <button id="start-btn" class="btn" type="submit">Start Quiz</button>

@@ -35,9 +35,17 @@ var answer4 = document.getElementById("btn-4");
 var start = document.getElementById("start-btn");
 // var for getting instructions
 var instructions = document.getElementById("instructions")
-var timeLeft = 75;
+    // var for timer
+var timeLeft = 60;
 // var for getting timer
 var timer = document.getElementById("timer");
+// var for score
+var score = 0;
+// vars for final score page
+var end = document.getElementById("end-game")
+var score = document.getElementById("score")
+var display1 = document.getElementById("display-1")
+var display2 = document.getElementById("display-2")
 
 var countDown = function() {
 
@@ -48,7 +56,8 @@ var countDown = function() {
             timeLeft--;
         } else {
             timer.textContent = "timer " + timeLeft;
-            clearInterval(timeInterval);
+            createEndGame();
+
         }
     }, 1000);
 
@@ -58,6 +67,7 @@ var countDown = function() {
 var createQuestionElement = function(index) {
 
     var currentQuestion = questions[questionCounter]
+
     question.textContent = currentQuestion.question;
 
     answer1.textContent = currentQuestion.choices[0]
@@ -69,28 +79,50 @@ var createQuestionElement = function(index) {
 }
 
 var checkAnswer = function(event) {
+
+
     var correctAnswer = questions[questionCounter].correctAnswer
     var currentAnswer = event.target.textContent
     if (currentAnswer === correctAnswer) {
         alert("Correct!")
     } else {
         alert("False")
+
+
+
+    }
+
+    if (questionCounter === questions.length) {
+        createEndGame();
+    } else {
+        questionCounter++;
+        createQuestionElement();
     }
 
 
 
-    questionCounter++;
-    createQuestionElement();
+
+}
+
+var createEndGame = function() {
+    if (timeLeft < 0) {
+        timeLeft === 0;
+    }
+
+
+    // question.classList.add("hide");
+    score.textContent = "Your final score is " + score;
 }
 
 var createStartQuiz = function(list) {
     instructions.style.visibility = "hidden";
 
+
     start.style.display = "none";
     listItem.style.visibility = "visible";
-
+    end.style.display = "none";
     createQuestionElement();
-    countDown();
+
 }
 
 
