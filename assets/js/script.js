@@ -33,7 +33,9 @@ var answer3 = document.getElementById("btn-3");
 var answer4 = document.getElementById("btn-4");
 // var for getting start button
 var start = document.getElementById("start-btn");
-// var for getting instructions
+// var for score submit button
+var scoreSubmit = document.getElementById("submit-btn")
+    // var for getting instructions
 var instructions = document.getElementById("instructions")
     // var for timer
 var timeLeft = 60;
@@ -58,14 +60,12 @@ var countDown = function() {
     }, 1000);
 };
 var createQuestionElement = function() {
-
-    var currentQuestion = questions[questionCounter + 1]
+    var currentQuestion = questions[questionCounter]
     question.textContent = currentQuestion.question;
     answer1.textContent = currentQuestion.choices[0]
     answer2.textContent = currentQuestion.choices[1]
     answer3.textContent = currentQuestion.choices[2]
     answer4.textContent = currentQuestion.choices[3]
-
 }
 var checkAnswer = function(event) {
     console.log(questionCounter)
@@ -78,34 +78,35 @@ var checkAnswer = function(event) {
             console.log(correctAnswer, currentAnswer)
             display1.removeAttribute("class");
             display2.setAttribute("class", "hide");
-            createQuestionElement();
         } else {
+            timeLeft -= 10;
             console.log(correctAnswer, currentAnswer)
             display2.removeAttribute("class");
             display1.setAttribute("class", "hide");
-            createQuestionElement();
         }
         questionCounter++;
-
-
+        if (questionCounter < questions.length) {
+            createQuestionElement();
+        }
     }
-
 }
 var createEndGame = function() {
-    console.log('THE END!!')
-    if (timeLeft < 0) {
-        timeLeft === 0;
-    }
-
-
-    // question.classList.add("hide");
-    score.textContent = "Your final score is " + score;
+    console.log('THE END!!');
+    // clearInterval(timeInterval);
+    listItem.classList.add("hide");
+    question.classList.add("hide");
+    display1.classList.add("hide")
+    display2.classList.add("hide")
+    end.classList.remove("hide");
+    score.textContent = "Your final score is " + timeLeft;
 }
 var createStartQuiz = function(list) {
     instructions.style.visibility = "hidden";
     start.style.display = "none";
     listItem.style.visibility = "visible";
-    end.style.display = "none";
+
+
+    countDown();
     createQuestionElement();
 }
 start.addEventListener("click", createStartQuiz);
@@ -113,3 +114,4 @@ answer1.addEventListener("click", checkAnswer)
 answer2.addEventListener("click", checkAnswer)
 answer3.addEventListener("click", checkAnswer)
 answer4.addEventListener("click", checkAnswer)
+scoreSubmit.addEventListener("click", createEndGame)
