@@ -162,7 +162,11 @@ var saveScore = function() {
     }
 }
 var clearScores = function() {
-    localStorage.removeItem("scores");
+    var items = document.getElementsByClassName("score-list-item");
+    for (var i = 0; i < items.length; i++) {
+        items[i].remove();
+    }
+    localStorage.removeItem("highscores");
 }
 var displayScores = function() {
     topScore.removeAttribute("class", "hide");
@@ -171,10 +175,7 @@ var displayScores = function() {
     reset.removeAttribute("class", "hide");
     end.setAttribute("class", "hide")
     score.setAttribute("class", "hide")
-    var items = document.getElementsByClassName("score-list-item");
-    for (var i = 0; i < items.length; i++) {
-        items[i].remove();
-    }
+
     saveScore();
 }
 start.addEventListener("click", createStartQuiz);
