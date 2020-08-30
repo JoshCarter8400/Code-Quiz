@@ -8,4 +8,4 @@ This project is a dynamic interactive quiz on coding knowledege. The quiz is tim
 4. DOM Manipulation
 
 ### Application can be deployed here: https://joshcarter8400.github.io/Code-Quiz/
-<img src="../assets/images/coding-quiz.png>
+<img src="/assets/images/coding-quiz.png>
