@@ -82,24 +82,22 @@
 }
 
 #display-1 {
-    background-color: green;
     border-top: 3px solid gray;
     margin-top: 15px;
     text-align: center;
     color: black;
     font-weight: bold;
-    width: 100%;
+    width: 80%;
     font-size: 24px;
 }
 
 #display-2 {
-    background-color: red;
     border-top: 3px solid gray;
     margin-top: 15px;
     text-align: center;
     color: black;
     font-weight: bold;
-    width: 100%;
+    width: 80%;
     font-size: 24px;
 }
 
@@ -126,4 +124,35 @@
 .int {
     font-size: 18px;
     font-weight: bold;
+}
+
+#win {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+#go-back {
+    display: inline;
+    /* width: 60%; */
+    padding: 10px;
+    color: white;
+    margin: 5px 0 5px 0;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#reset {
+    display: inline;
+    /* width: 60%; */
+    padding: 10px;
+    color: white;
+    margin: 5px 0 5px 0;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#final {
+    height: 30px;
 }
